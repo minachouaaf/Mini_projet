@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exercice Chrono </title>
+	<meta charset="utf-8">
+
+<style>
+
+
+.c1{
+
+background: black;
+color: white;
+font-size: 50px;
+height: 90px;
+text-align:center;
+
+
+}
+
+
+h6{
+
+
+	margin-left: 400px;
+	font-size: 20px;
+}
+textarea {
+
+width: 600px;
+height: 100px;
+margin-left: 400px;
+
+}
+
+.c11{
+
+margin-top: 50px;
+margin-left: 500px;
+
+
+}
+
+
+button{
+
+margin-top: 0px;
+margin-left: 700px;
+background: white;
+color: orange;
+border-color:orange;
+
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="c1">  Typing speed </div>
+<h6   class ="c3"> Veuillez saisir ce texte pour compter le  temps . </h6>
+<textarea   placeholder="enter text"  class="c2"   ></textarea>
+
+
+<div class="c11">
+<span id="h">00</span>:
+<span id="m">00</span>:
+<span id="s">00</span>
+
+</div>
+
+<button>Redemarrer</button>
+
+
+
+<script>
+	
+var valeur=0;
+var v=0;
+var s=0; 
+
+var VarS=document.querySelector('#s');
+function change_miniseconde(){
+    if(valeur>=60){
+      
+        change_seconde();
+        valeur=0;
+    }
+    valeur+=1
+    VarS.innerHTML=valeur;
+    
+}
+function change_seconde(){
+    if(v>=60){
+        
+        change_minute();
+        v=0;
+    }
+    v+=1;
+    var l=document.querySelector('#m');
+    l.innerHTML=v;
+  
+       
+}
+function change_minute(){
+   
+    s+=1;
+    var op=document.querySelector('#h');
+    op.innerHTML=s;
+       
+}
+var changeInter;
+function start_Chrono(){
+    changeInter=setInterval(change_miniseconde,110);
+}
+ 
+function stop(){
+    
+      
+}
+
+
+var textAr=document.querySelector(".c2");
+textAr.addEventListener("keydown",start_Chrono);
+
+
+</script>
+
+</body>
+</html>
